@@ -39,6 +39,4 @@ public class ConnexionJpa {
         entityManager.close();
         entityManagerFactory.close();
     }
-
-
 }
