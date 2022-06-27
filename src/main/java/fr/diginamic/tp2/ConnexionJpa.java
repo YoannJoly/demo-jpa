@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.List;
+import java.util.logging.Level;
 
 public class ConnexionJpa {
 
@@ -19,6 +20,7 @@ public class ConnexionJpa {
     }
 
     public static void findBookById(int id) {
+        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu_essai");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
@@ -28,6 +30,7 @@ public class ConnexionJpa {
     }
 
     public static void findEmpruntById(int id) {
+        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu_essai");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
@@ -36,7 +39,7 @@ public class ConnexionJpa {
 
         List<Integer> nextId = entityManager.createQuery("SELECT idLiv FROM Compo WHERE idEmp="+id).getResultList();
 
-        System.out.println("Livres empruntés :");
+        System.out.println("\nLivres empruntés :");
         for (Integer integer : nextId) {
             findBookById(integer);
         }
