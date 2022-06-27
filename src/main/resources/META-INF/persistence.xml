@@ -4,10 +4,10 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd" version="2.1">
     <persistence-unit name="pu_essai" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:8889/tpDal"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:8889/bdJava"/>
             <property name="javax.persistence.jdbc.user" value="Yoann"/>
             <property name="javax.persistence.jdbc.password" value="simplonco"/>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
