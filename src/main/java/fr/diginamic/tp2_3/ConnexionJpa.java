@@ -1,9 +1,7 @@
-package fr.diginamic.tp2;
+package fr.diginamic.tp2_3;
 
-import fr.diginamic.tp1.entity.Region;
-import fr.diginamic.tp2.entity.Compo;
-import fr.diginamic.tp2.entity.Emprunt;
-import fr.diginamic.tp2.entity.Livre;
+import fr.diginamic.tp2_3.entity.Emprunt;
+import fr.diginamic.tp2_3.entity.Livre;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,13 +12,13 @@ import java.util.logging.Level;
 public class ConnexionJpa {
 
     public static void main(String[] args) {
+        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
         findBookById(2);
         findEmpruntById(2);
 
     }
 
     public static void findBookById(int id) {
-        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu_essai");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
@@ -30,14 +28,13 @@ public class ConnexionJpa {
     }
 
     public static void findEmpruntById(int id) {
-        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("pu_essai");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         Emprunt emprunt = entityManager.find(Emprunt.class, id);
         System.out.println(emprunt);
 
-        List<Integer> nextId = entityManager.createQuery("SELECT idLiv FROM Compo WHERE idEmp="+id).getResultList();
+        List<Integer> nextId = entityManager.createQuery("SELECT idLiv FROM Compo WHERE idEmp=" + id).getResultList();
 
         System.out.println("\nLivres empruntés :");
         for (Integer integer : nextId) {

@@ -1,4 +1,4 @@
-package fr.diginamic.tp2.entity;
+package fr.diginamic.tp2_3.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -14,10 +14,10 @@ public class Emprunt {
     @GenericGenerator(name = "seq", strategy = "increment")
     private int id;
 
-    @Column(name = "DATE_DEBUT", nullable = false)
+    @Column(name = "DATE_DEBUT", columnDefinition = "DATETIME", nullable = false)
     private LocalDateTime dateDebut;
 
-    @Column(name = "DATE_FIN")
+    @Column(name = "DATE_FIN", columnDefinition = "DATETIME")
     private LocalDateTime dateFin;
 
     @Column(name = "DELAI", length = 10, nullable = false)
