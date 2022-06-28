@@ -1,9 +1,10 @@
-package fr.diginamic.tp4.entity;
+package fr.diginamic.tp4_5.entity;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "compte")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Compte {
 
     @Id

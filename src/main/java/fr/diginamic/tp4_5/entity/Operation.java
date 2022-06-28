@@ -1,10 +1,11 @@
-package fr.diginamic.tp4.entity;
+package fr.diginamic.tp4_5.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "operation")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Operation {
 
     @Id
