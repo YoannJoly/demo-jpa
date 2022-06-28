@@ -1,12 +1,15 @@
 package fr.diginamic.tp4.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "banque")
 public class Banque {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private int id;
 
     @Column(name = "nom", length = 50, nullable = false)
     private String nom;

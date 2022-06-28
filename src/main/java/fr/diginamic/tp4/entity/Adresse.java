@@ -1,12 +1,16 @@
 package fr.diginamic.tp4.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
+@Embeddable
 @Table(name = "adresse")
 public class Adresse {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private int id;
 
     @Column(name = "numero", length = 10, nullable = false)
     private int numero;

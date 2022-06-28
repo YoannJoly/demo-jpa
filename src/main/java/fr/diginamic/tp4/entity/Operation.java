@@ -1,13 +1,16 @@
 package fr.diginamic.tp4.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "operation")
 public class Operation {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private int id;
 
     @Column(name = "date", nullable = false)
     private LocalDateTime date;

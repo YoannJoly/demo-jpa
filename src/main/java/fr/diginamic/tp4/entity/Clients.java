@@ -1,13 +1,16 @@
 package fr.diginamic.tp4.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "client")
-public class Client {
+@Table(name = "clients")
+public class Clients {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private int id;
 
     @Column(name = "nom", length = 50, nullable = false)
     private String nom;
@@ -18,7 +21,7 @@ public class Client {
     @Column(name = "dateNaissance", nullable = false)
     private LocalDate dateNaissance;
 
-    public Client() {
+    public Clients() {
     }
 
     public String getNom() {
