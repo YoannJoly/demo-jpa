@@ -5,7 +5,7 @@ import fr.diginamic.tp7.bo.ScoreNutritionnel;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
+//@Entity
 @Table(name = "produit")
 public class Produit {
     @ManyToOne

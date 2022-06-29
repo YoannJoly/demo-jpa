@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-@Entity
+//@Entity
 public class Marque implements Serializable {
     @Id
     private int id;

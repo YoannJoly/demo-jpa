@@ -3,7 +3,7 @@ package fr.diginamic.tp7.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+//@Entity
 public class Categorie {
     @Id
     private int id;
