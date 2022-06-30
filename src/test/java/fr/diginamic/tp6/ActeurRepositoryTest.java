@@ -60,7 +60,7 @@ public class ActeurRepositoryTest {
     @Test
     public void testExtraireActeursParRole() {
 
-        TypedQuery<Acteur> query = em.createQuery("SELECT a FROM Acteur a WHERE a.id IN (SELECT b.acteur from Role b WHERE trim(b.nom) LIKE ('Harley Quinn')) ", Acteur.class);
+        TypedQuery<Acteur> query = em.createQuery("SELECT a FROM Acteur a WHERE a.id IN (SELECT b.acteur from Role b WHERE trim(b.nom) LIKE trim('Harley Quinn')) ", Acteur.class);
         List<Acteur> acteurs = query.getResultList();
 
         assertEquals(2, acteurs.size());
@@ -73,7 +73,7 @@ public class ActeurRepositoryTest {
      */
     @Test
     public void testExtraireActeursParFilmParuAnnee() {
-        TypedQuery<Acteur> query = em.createQuery("SELECT a FROM Acteur a", Acteur.class);
+        TypedQuery<Acteur> query = em.createQuery("SELECT r FROM Acteur a, Role r WHERE a.id = r.acteur   ", Acteur.class);
         List<Acteur> acteurs = query.getResultList();
         assertEquals(140, acteurs.size());
     }

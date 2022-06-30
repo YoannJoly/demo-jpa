@@ -1,12 +1,17 @@
 package fr.diginamic.tp7.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.hibernate.annotations.GenericGenerator;
 
-//@Entity
+import javax.persistence.*;
+
+@Entity
 public class Additif {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq")
+    @GenericGenerator(name = "seq", strategy = "increment")
+    @Column(name = "id", nullable = false)
     private int id;
+    @Column(name = "additif")
     private String libelle;
 
     public Additif(final String libelle) {

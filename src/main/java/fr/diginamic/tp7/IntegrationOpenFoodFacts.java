@@ -1,6 +1,11 @@
 package fr.diginamic.tp7;
 
 import com.opencsv.CSVReader;
+import fr.diginamic.tp7.bll.ProduitManager;
+import fr.diginamic.tp7.bo.ScoreNutritionnel;
+import fr.diginamic.tp7.entity.Categorie;
+import fr.diginamic.tp7.entity.Marque;
+import fr.diginamic.tp7.entity.Produit;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -20,6 +25,9 @@ public class IntegrationOpenFoodFacts {
         // System.out.println(csvReader());
         // System.out.println(oneByOneExample());
         readDataLineByLine("src/main/java/fr/diginamic/tp7/open-food-facts.csv");
+        Categorie categorie = new Categorie("Gateau");
+        Marque marque = new Marque("Milka");
+        ProduitManager.getInstance().addProduit(new Produit(categorie, marque, ScoreNutritionnel.B, new ArrayList<>(), new ArrayList<>(), new ArrayList<>()));
 
     }
 

@@ -4,19 +4,19 @@ import fr.diginamic.tp7.dal.DAO;
 import fr.diginamic.tp7.dal.DAOFactory;
 import fr.diginamic.tp7.entity.Produit;
 
-public class ProduitManger {
-    private static volatile ProduitManger instance;
+public class ProduitManager {
+    private static volatile ProduitManager instance;
     private static DAO<Produit> produitImpl;
 
-    private ProduitManger() {
+    private ProduitManager() {
         produitImpl = DAOFactory.getProduitDAO();
     }
 
-    public static ProduitManger getInstance() {
+    public static ProduitManager getInstance() {
         if (instance == null) {
-            synchronized (ProduitManger.class) {
+            synchronized (ProduitManager.class) {
                 if (instance == null) {
-                    instance = new ProduitManger();
+                    instance = new ProduitManager();
                 }
             }
         }

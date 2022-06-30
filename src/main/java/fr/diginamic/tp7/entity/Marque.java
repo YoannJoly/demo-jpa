@@ -1,13 +1,18 @@
 package fr.diginamic.tp7.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
-//@Entity
+@Entity
 public class Marque implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq")
+    @GenericGenerator(name = "seq", strategy = "increment")
+    @Column(name = "id", nullable = false)
     private int id;
+    @Column(name = "marque")
     private String libelle;
 
     public Marque(final String libelle) {

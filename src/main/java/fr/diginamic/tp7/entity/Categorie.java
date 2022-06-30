@@ -1,12 +1,18 @@
 package fr.diginamic.tp7.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.hibernate.annotations.GenericGenerator;
 
-//@Entity
+import javax.persistence.*;
+
+@Entity
+//@Table(name = "categorie")
 public class Categorie {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq")
+    @GenericGenerator(name = "seq", strategy = "increment")
+    @Column(name = "id", nullable = false)
     private int id;
+    @Column(name = "categorie")
     private String libelle;
 
     public Categorie(final String libelle) {
